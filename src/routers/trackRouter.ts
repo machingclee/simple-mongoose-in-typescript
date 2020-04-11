@@ -8,7 +8,14 @@ const router = express.Router();
 router.use(requireAuth);
 
 router.get("/", getTracks);
-router.post("/", async (req: express.Request, res: express.Response) => {
+router.post("/", createTrack);
+
+async function getTracks(req: express.Request, res: express.Response) {
+  const tracks = await Track.find({ userId: (req.user as IUser)._id });
+  res.send(tracks);
+}
+
+async function createTrack(req: express.Request, res: express.Response) {
   const { name, locations } = req.body;
 
   if (!name || !locations)
@@ -26,11 +33,6 @@ router.post("/", async (req: express.Request, res: express.Response) => {
   } catch (err) {
     res.status(422).send({ err: err.message });
   }
-});
-
-async function getTracks(req: express.Request, res: express.Response) {
-  const tracks = await Track.find({ userId: (req.user as IUser)._id });
-  res.send(tracks);
 }
 
 export default router;

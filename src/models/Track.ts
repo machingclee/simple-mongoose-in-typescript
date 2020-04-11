@@ -43,3 +43,20 @@ const trackSchema = new Schema<ITrack>({
 });
 
 export default mongoose.model<ITrack>("Track", trackSchema);
+
+const a: any = {
+  name: "my new track",
+  locations: [
+    {
+      timestamp: 1000000,
+      coords: {
+        latitude: 100,
+        longtitude: 10,
+        altitutde: 100,
+        accuracy: 10,
+        heading: 100,
+        speed: 1000,
+      },
+    },
+  ],
+};

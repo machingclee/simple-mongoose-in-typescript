@@ -17,6 +17,7 @@ export default (req: Request, res: Response, next: NextFunction) => {
   const token = authorization.replace("Bearer ", "");
 
   jwt.verify(token, JWT_SECRET, async (err, payload) => {
+    //payload is the resulting object after decrypting the token.
     if (err) return res.status(401).send({ error: "must log in." });
 
     const { userId } = payload as IPayload;
