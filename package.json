@@ -22,7 +22,7 @@
   "main": "index.js",
   "devDependencies": {},
   "scripts": {
-    "start": "tsc && ts-node build/index.js"
+    "start": "ts-node src/index.ts"
   },
   "keywords": [],
   "author": "",
