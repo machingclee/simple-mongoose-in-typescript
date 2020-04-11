@@ -1,2 +1,2 @@
 # simple-mongoose-in-typescript
-translated some simple template in js into ts.
+Study on mongodb, rewrite tutorial in js into ts.
